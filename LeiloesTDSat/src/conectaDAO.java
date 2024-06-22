@@ -17,15 +17,19 @@ import javax.swing.JOptionPane;
  */
 public class conectaDAO {
     
-    public Connection connectDB(){
+    public Connection connectDB() {
         Connection conn = null;
-        
         try {
-        
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/uc11?user=root&password=");
-            
-        } catch (SQLException erro){
-            JOptionPane.showMessageDialog(null, "Erro ConectaDAO" + erro.getMessage());
+            // URL do banco de dados, usuário e senha
+            String url = "jdbc:mysql://localhost:3306/leiloes?useSSL=false";
+            String user = "root";
+            String password = "mysql";
+
+            // Conectar ao banco de dados
+            conn = DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            // Exibir mensagem de erro se a conexão falhar
+            JOptionPane.showMessageDialog(null, "Erro ao conectar ao banco de dados: " + e.getMessage());
         }
         return conn;
     }
