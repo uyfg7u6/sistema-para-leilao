@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class conectaDAO {
     
     public Connection connectDB() {
-        Connection conn = null;
+        Connection conn = null ;
         try {
             // URL do banco de dados, usuário e senha
             String url = "jdbc:mysql://localhost:3306/leiloes?useSSL=false";
