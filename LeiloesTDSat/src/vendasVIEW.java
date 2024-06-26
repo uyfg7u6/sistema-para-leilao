@@ -49,7 +49,7 @@ public class vendasVIEW extends javax.swing.JFrame {
         listaProdutos = new javax.swing.JTable();
         btnVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
         jLabel1.setText("Lista de Produtos Vendidos");
@@ -131,7 +131,7 @@ public class vendasVIEW extends javax.swing.JFrame {
                 model.addRow(new Object[]{id, nome, valor, status});
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar produtos vendidos: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao carregar produtos vendidos" + ex.getMessage());
         } finally {
             try {
                 if (resultset != null) resultset.close();

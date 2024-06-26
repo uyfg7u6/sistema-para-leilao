@@ -81,9 +81,9 @@ public class ProdutosDAO {
             prep = conn.prepareStatement(sql);
             prep.setInt(1, produtoId);
             prep.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Produto vendido com sucesso!");
+            JOptionPane.showMessageDialog(null, "Produto vendido com sucesso");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao vender produto: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao vender produto" + e.getMessage());
         } finally {
             try {
                 if (prep != null) prep.close();
