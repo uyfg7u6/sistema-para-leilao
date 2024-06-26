@@ -17,10 +17,10 @@ import java.util.logging.Logger;
  *
  * @author felip
  */
-public class vendasTELA extends javax.swing.JFrame {
+public class vendasVIEW extends javax.swing.JFrame {
 
     /**
-     * Creates new form vendasTELA
+     * Creates new form vendasVIEW
      */
     
     private ProdutosDAO produtosDAO;
@@ -29,7 +29,7 @@ public class vendasTELA extends javax.swing.JFrame {
     ResultSet resultset;
     ArrayList<ProdutosDTO> listagem = new ArrayList<>();
     
-    public vendasTELA() {
+    public vendasVIEW() {
         initComponents();
         produtosDAO = new ProdutosDAO();
         carregarProdutosVendidos();
@@ -112,6 +112,7 @@ public class vendasTELA extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void carregarProdutosVendidos() {
+        conn = new conectaDAO().connectDB();
         DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();
         model.setRowCount(0); // Limpar tabela antes de carregar
 
@@ -136,7 +137,7 @@ public class vendasTELA extends javax.swing.JFrame {
                 if (resultset != null) resultset.close();
                 if (prep != null) prep.close();
             } catch (SQLException ex) {
-                Logger.getLogger(vendasTELA.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(vendasVIEW.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -158,20 +159,21 @@ public class vendasTELA extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vendasTELA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendasVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vendasTELA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendasVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vendasTELA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendasVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vendasTELA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendasVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vendasTELA().setVisible(true);
+                new vendasVIEW().setVisible(true);
             }
         });
     }
